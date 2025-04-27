@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulaire Étudiant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      color: #333;
+      padding-bottom: 100px; /* Pour laisser de la place au footer */
+    }
+
+    legend {
+      text-align: center;
+    }
+
+    h2 {
+      text-decoration: underline;
+      color: gold;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    .souligne {
+      text-decoration: underline;
+    }
+
+    @keyframes clignote {
+      0%   { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blink {
+      animation: clignote 1s infinite;
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      animation: glow 3s infinite alternate;
+      z-index: 10;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px #66a6ff;
+      }
+      100% {
+        box-shadow: 0 0 20px #66a6ff, 0 0 30px #89f7fe;
+      }
+    }
+
+    marquee {
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    .btn-retour {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0072ff;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    }
+    
+    .btn-retour:hover {
+    background-color: #005fcc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="blink"><center>Enregistrement des Etudiants</center></h2>
+
+  <form method="post" action="traitement.php">
+    <fieldset>
+      <legend><strong>État civil</strong></legend>
+      <label class="souligne" for="Nom"><strong>Nom:</strong></label> 
+      <input type="text" id="Nom"><br><br>
+      <label class="souligne" for="Prenom"><strong>Prénom:</strong></label>
+      <input type="text" id="Prenom"><br><br>
+      <label class="souligne" for="Birthday"><strong>Date de naissance:</strong></label>
+      <input type="date" id="Birthday"><br><br>
+      <label class="souligne" for="mail"><strong>E-mail:</strong></label>
+      <input type="email" id="mail"><br><br>
+      <label class="souligne"><strong>Sexe:</strong></label><br>
+      <input type="radio" id="masculin" name="sexe" value="M">
+      <label class="souligne" for="masculin"><strong>M</strong></label><br>
+      <input type="radio" id="feminin" name="sexe" value="F">
+      <label for="feminin"><strong>F</strong></label><br><br>
+      <label for="contact"><strong>Tel:</strong></label>
+      <input type="tel" id="contact">
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>Les diplômes</strong></legend>
+      <input type="checkbox" id="CEP" name="diplome" value="CEP">
+      <label for="CEP"><strong>CEP</strong></label><br><br>
+      <input type="checkbox" id="BEPC" name="diplome" value="BEPC">
+      <label for="BEPC"><strong>BEPC</strong></label><br><br>
+      <input type="checkbox" id="BAC" name="diplome" value="BAC">
+      <label for="BAC"><strong>BAC</strong></label><br><br>
+    </fieldset>
+
+    <label for="adresse"><strong>Votre adresse:</strong></label>
+    <input type="text" id="adresse" name="adresse" placeholder="Ex : Quartier Zongo, Cotonou" required><br><br>
+
+    <fieldset>
+      <legend><strong>PAYS</strong></legend>
+      <label><input type="radio" name="pays" value="benin"> Bénin</label><br>
+      <label><input type="radio" name="pays" value="senegal"> Sénégal</label><br>
+      <label><input type="radio" name="pays" value="france"> France</label>
+    </fieldset>
+
+    <fieldset>
+      <legend><strong>Les boutons</strong></legend>
+      <div class="buttons">
+        <button type="submit">Envoyer</button>
+        <button type="reset">Effacer</button>
+        <button type="button" onclick="window.close();">Quitter</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <footer>
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      Développé avec passion par Harmo912 &copy; 2025 — Powered by HTML & CSS
+    </marquee>
+  </footer>
+<div style="text-align: center; margin-top: 20px;">
+  <a href="index.html" class="btn-retour">Retour à l'accueil</a>
+</div>
+</body>
+</html>
